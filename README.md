@@ -10,4 +10,5 @@ file
 
 - Do optimistic locking while updating the stock & creating the order. Return an error if a race condition happened, instead of updating the stock and creating an order.
 
+To demonstrate, run the backend with `go run main.go`, and then run the functional test inside `functional test.zip`
  
