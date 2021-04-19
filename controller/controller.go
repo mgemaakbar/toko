@@ -18,11 +18,6 @@ func NewControllerHttp(uc usecase.Usecase) *controllerHttp {
 	return &controllerHttp{uc: uc}
 }
 
-type BuyRequest struct {
-	SKU      string `json:"sku"`
-	Quantity int    `json:"quantity"`
-}
-
 type Response struct {
 	Message string `json:"message"`
 }
