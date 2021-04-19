@@ -10,5 +10,5 @@ file
 
 - To prevent the incident, do optimistic locking while updating the stock & creating the order. Return an error if a race condition happened, instead of updating the stock and creating an order.
 
-To demonstrate the proof of concept, run the backend with `go run main.go`, and then run the functional test inside `functional test.zip`
+To demonstrate the proof of concept, run the backend with `go run main.go`, and then run the functional test inside `functional test.zip`. Make sure you have the database ready before demonstrating it.
  
