@@ -6,19 +6,6 @@ import (
 	"toko/customerror"
 )
 
-type Product struct {
-	ID      int
-	SKU     string
-	Stock   int
-	Version uint64
-}
-
-type Order struct {
-	ID        int
-	ProductID int
-	Quantity  int
-}
-
 type DBQuery interface {
 	GetProduct(SKU string) (*Product, error)
 	Buy(deltaStock int, SKU string, version uint64, o *Order) error
@@ -32,12 +19,12 @@ func NewDBQuery(conn *sql.DB) DBQuery {
 	return &dbQuery{conn: conn}
 }
 
-func (p *dbQuery) Buy(deltaStock int, SKU string, version uint64, o *Order) error {
+func (p *dbQuery) Buy(quantity int, SKU string, version uint64, o *Order) error {
 	tx, err := p.conn.Begin()
 	if err != nil {
 		return customerror.NewInternalError(err.Error())
 	}
-	err = p.updateProductStock(tx, deltaStock, SKU, version)
+	err = p.updateProductStock(tx, quantity, SKU, version)
 	if err != nil {
 		tx.Rollback()
 		return err

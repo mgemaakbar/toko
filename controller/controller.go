@@ -18,10 +18,6 @@ func NewControllerHttp(uc usecase.Usecase) *controllerHttp {
 	return &controllerHttp{uc: uc}
 }
 
-type Response struct {
-	Message string `json:"message"`
-}
-
 func WriteReponse(w http.ResponseWriter, err error) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(customerror.GetHTTPResponseCode(err))
