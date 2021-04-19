@@ -45,7 +45,7 @@ func (u *usecase) Buy(sku string, quantity int) error {
 		return err
 	}
 
-	log.Info("Successfully ordered. (Quantity: %d, SKU %s, Version: %d)\n", quantity, sku, prod.Version)
+	log.Infof("Successfully ordered. (Quantity: %d, SKU %s, Version: %d)\n", quantity, sku, prod.Version)
 
 	return nil
 }

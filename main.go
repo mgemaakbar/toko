@@ -17,8 +17,6 @@ func main() {
 		"password=%s dbname=%s sslmode=disable",
 		"localhost", 5432, "pengguna", "pengguna", "pengguna")
 
-	fmt.Println(psqlInfo)
-
 	db, err := sql.Open("postgres", psqlInfo)
 	if err != nil {
 		panic(err)
